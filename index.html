@@ -7,22 +7,24 @@
     <title>MarketDB</title>
 </head>
 <body>
-    <div id="teste"></div>
     <!--Links da nav bar lateral-->
     <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onlick="closeNav()">&times;</a>
-        <a href="#">Cadastro de Mercado</a>
+        <a href="javascript:void(0)" id="openBtn" onclick="openNav()">=</a>
+        <a href="javascript:void(0)" id="closeBtn" onclick="closeNav()">&times;</a>
+        <a href="#">Cadastrar Mercado</a>
         <a href="#">Escolher Mercado</a>
         <a href="#">Lista de Compras</a>
         <a href="#">Minhas Compras</a>
     </div>
 
     <!--Elemento para abrir a barra lateral-->
-    <span onclick="openNav()">=</span>
+    <!--<span id="openBtn" onclick="openNav()">=</span>-->
 
     <!--Para que o menu impurre a página para o lado, o seu conteúdo
     deve ficar dentro da div "main"-->
-    <div id="main"></div>
+    <div id="main">
+        <h2>Bem Vindo!!!</h2>
+    </div>
 
 
 
