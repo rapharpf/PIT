@@ -15,3 +15,15 @@ function closeNav() {
     document.getElementById("closeBtn").style.display = "none";
     document.body.style.backgroundColor = "rgba(40,40,40)";
 }
+
+// Página de cadastro
+
+function cadastrarMercado() {
+    console.log(document.getElementById("cadastro_nome_mercado").value)
+    console.log(document.getElementById("endereco_mercado").value)
+    alert("Mercado cadastrado com sucesso!")
+    document.getElementById("cadastro_nome_mercado").value = ""
+    document.getElementById("endereco_mercado").value = ""
+
+
+}
