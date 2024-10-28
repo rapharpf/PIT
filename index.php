@@ -11,7 +11,7 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" id="openBtn" onclick="openNav()">&equiv;</a>
         <a href="javascript:void(0)" id="closeBtn" onclick="closeNav()">&times;</a>
-        <a href="cadastrar_Mercado.html">Cadastrar Mercado</a>
+        <a href="cadastrar_mercado.php">Cadastrar Mercado</a>
         <a href="#">Escolher Mercado</a>
         <a href="#">Criar Lista</a>
         <a href="#">Minhas Listas</a>

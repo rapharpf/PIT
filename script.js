@@ -22,8 +22,6 @@ function cadastrarMercado() {
     console.log(document.getElementById("cadastro_nome_mercado").value)
     console.log(document.getElementById("endereco_mercado").value)
     alert("Mercado cadastrado com sucesso!")
-    document.getElementById("cadastro_nome_mercado").value = ""
-    document.getElementById("endereco_mercado").value = ""
-
-
+    //document.getElementById("cadastro_nome_mercado").value = ""
+    //document.getElementById("endereco_mercado").value = ""
 }
