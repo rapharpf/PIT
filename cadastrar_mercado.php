@@ -1,9 +1,7 @@
 <?php
 
     if(isset($_POST["btn_cadastrar_mercado"])) {
-        //echo "Deu certo!";
-        //print_r($_POST["cadastro_nome_mercado"]);
-        //print_r($_POST["endereco_mercado"]);
+        
 
         include_once "config.php";
 
@@ -31,7 +29,7 @@
         <a href="javascript:void(0)" id="closeBtn" onclick="closeNav()">&times;</a>
         <a href="index.php">Início</a>
         <a href="cadastrar_Mercado.php">Cadastrar Mercado</a>
-        <a href="#">Escolher Mercado</a>
+        <a href="meus_mercados.php">Meus Mercados</a>
         <a href="#">Criar Lista</a>
         <a href="#">Minhas Listas</a>
         <a href="#">Minhas Compras</a>
@@ -44,6 +42,7 @@
     deve ficar dentro da div "main"-->
     <div id="main">
         <h2>Cadastrar Mercado</h2>
+        <hr><br>
         <form action="cadastrar_mercado.php", method="POST">
             <label for="cadastro_nome_mercado">Nome do mercado:</label><br>
             <input type="text" id="cadastro_nome_mercado" name="cadastro_nome_mercado" placeholder="Nome do mercado"><br>

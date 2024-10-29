@@ -12,7 +12,7 @@
         <a href="javascript:void(0)" id="openBtn" onclick="openNav()">&equiv;</a>
         <a href="javascript:void(0)" id="closeBtn" onclick="closeNav()">&times;</a>
         <a href="cadastrar_mercado.php">Cadastrar Mercado</a>
-        <a href="#">Escolher Mercado</a>
+        <a href="meus_mercados.php">Meus Mercados</a>
         <a href="#">Criar Lista</a>
         <a href="#">Minhas Listas</a>
         <a href="#">Minhas Compras</a>
@@ -25,6 +25,7 @@
     deve ficar dentro da div "main"-->
     <div id="main">
         <h2>Bem Vindo!!!</h2>
+        <hr><br>
     </div>
     <script src="script.js"></script>
 </body>

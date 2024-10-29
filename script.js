@@ -25,3 +25,6 @@ function cadastrarMercado() {
     //document.getElementById("cadastro_nome_mercado").value = ""
     //document.getElementById("endereco_mercado").value = ""
 }
+
+
+// Página meus mercados
