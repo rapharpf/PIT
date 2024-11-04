@@ -25,30 +25,35 @@
     deve ficar dentro da div "main"-->
     <div id="main">
         <h2>Meus Mercados</h2>
-        <hr></br>
+        <br><hr></br>
         <div id="meus_mercados_bg">
             <table id="tabela_meus_mercados">
-                <?php
-                    include_once "config.php";
-                    $resultado = $conexao->query("SELECT * FROM cadastro_mercados");
-                    if ($resultado->num_rows > 0) {
-                        // output data of each row
-                        while($row = $resultado->fetch_assoc()) {
-                            print_r("<tr>
-                                            <th>Nome:</th>
-                                            <td>".$row["nome_mercado"]."</td>
-                                            <td>opt</td>
-                                        </tr>".
-                                        "<tr>
-                                            <th class="."th".">Endereço:</th>
-                                            <td class="."td".">".$row["desc_mercado"]."</td>
-                                            <td class="."td>opt</td>
-                                        </tr>");
+                <tbody>
+                    <?php
+                        include_once "config.php";
+                        $resultado = $conexao->query("SELECT * FROM cadastro_mercados");
+                        if ($resultado->num_rows > 0) {
+                            // output data of each row
+                            while($row = $resultado->fetch_assoc()) {          
+                                print_r("    <tr>
+                                                        <th style='padding-top:20px'>Nome:</th>
+                                                        <td class ='input_edit_nome'><input type='text' name='input_edit_nome' placeholder='teste' value=".$row['nome_mercado']."></input></td>
+                                                        <td class='lbl_nome_mercado' style='padding:20px 0 0 0px'>".$row['nome_mercado']."</td>
+                                                        <td class='btn_edit_nome' style='padding:20px 0 0 0px'>edit nome</td>
+                                                        <td class='btn_del_mercado' style='padding:20px 0 0 0px'>delete</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Endereço:</th>
+                                                        <td class ='input_edit_desc_mercado'><input type='text' name='input_edit_desc_mercado' placeholder=".$row["desc_mercado"]." value=".$row["desc_mercado"]."></input></td>
+                                                        <td class='lbl_desc_mercado' style='padding-left:0px'>".$row["desc_mercado"]."</td>
+                                                        <td class='btn_edit_desc' style='padding-left:0px'>edit desc</td>
+                                                    </tr>");
+                            }
+                        } else {
+                            echo "Nada";
                         }
-                    } else {
-                        echo "Nada";
-                    }
-                ?>
+                    ?>
+                </tbody>
             </table>
         </div>
     </div>   

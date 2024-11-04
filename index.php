@@ -25,7 +25,7 @@
     deve ficar dentro da div "main"-->
     <div id="main">
         <h2>Bem Vindo!!!</h2>
-        <hr><br>
+        <br><hr><br>
     </div>
     <script src="script.js"></script>
 </body>

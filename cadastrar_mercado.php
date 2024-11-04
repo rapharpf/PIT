@@ -42,13 +42,13 @@
     deve ficar dentro da div "main"-->
     <div id="main">
         <h2>Cadastrar Mercado</h2>
-        <hr><br>
+        <br><hr><br>
         <form action="cadastrar_mercado.php", method="POST">
             <label for="cadastro_nome_mercado">Nome do mercado:</label><br>
-            <input type="text" id="cadastro_nome_mercado" name="cadastro_nome_mercado" placeholder="Nome do mercado"><br>
+            <input type="text" id="cadastro_nome_mercado" name="cadastro_nome_mercado" placeholder="Nome do mercado"></input><br>
             <label for="endereco_mercado">Endereço/Descrição</label><br>
             <input type="text" id="endereco_mercado" name="endereco_mercado" placeholder="Rua fulano de tal, N. 3/4"><br>
-            <input type="submit" class="btn" id="btn_cadastrar_mercado" name="btn_cadastrar_mercado" value="Cadastrar" onclick="cadastrarMercado()">
+            <input type="submit" class="btn" id="btn_cadastrar_mercado" name="btn_cadastrar_mercado" value="Cadastrar" onclick="cadastrarMercado()"></input>
         </form>
     </div>
         <script src="script.js"></script>
