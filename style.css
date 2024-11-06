@@ -89,6 +89,10 @@ body {
    border-style: solid;  
 }
 
+/*  nome mercado */
+.id_db {
+   display: none;
+}
 .lbl_nome_mercado {
    display: block;
 }
@@ -108,6 +112,8 @@ body {
    display:block;
 }
 
+
+/*  descrição mercado */
 .input_edit_desc_mercado{ 
    display: none;
    margin-top: 0px;

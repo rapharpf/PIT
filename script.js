@@ -18,9 +18,10 @@ function closeNav() {
 
 // Página de cadastro
 
+
 function cadastrarMercado() {
-    console.log(document.getElementById("cadastro_nome_mercado").value)
-    console.log(document.getElementById("endereco_mercado").value)
+    console.log(document.getElementById("cadastro_nome_mercado").value);
+    console.log(document.getElementById("endereco_mercado").value);
     alert("Mercado cadastrado com sucesso!")
     //document.getElementById("cadastro_nome_mercado").value = ""
     //document.getElementById("endereco_mercado").value = ""
@@ -30,25 +31,32 @@ function cadastrarMercado() {
 // Página meus mercados
 
 //  Funçao para alterar o nome do mercado
-let btn_edit_nome = document.querySelectorAll(".btn_edit_nome");
+
+let btn_edit_nome = document.querySelectorAll('.btn_edit_nome');
 let lbl_nome_mercado = document.querySelectorAll(".lbl_nome_mercado");
 let input_edit_nome = document.querySelectorAll(".input_edit_nome");
+//console.log(btn_edit_nome[0].getAttribute('type'));
+//btn_edit_nome[0].setAttribute('type', 'button');
+
 
 let mode_nome = false;
-btn_edit_nome.forEach((item,index)=>{
+btn_edit_nome.forEach((item, index)=>{
     item.addEventListener("click",(t)=>{
+        //t.preventDefault();
         if (mode_nome == false){
             lbl_nome_mercado[index].style.display = "none";
             input_edit_nome[index].style.display = "block";
             mode_nome = true;
-            btn_edit_nome[index].innerHTML = "gravar"
+            btn_edit_nome[index].value = "Gravar"
+            //btn_edit_nome[index].setAttribute('type', 'button');
             console.log(mode_nome);
         }else {
             lbl_nome_mercado[index].innerHTML = input_edit_nome[index].firstElementChild.value;
             lbl_nome_mercado[index].style.display = "block";
             input_edit_nome[index].style.display = "none";
             mode_nome = false;
-            btn_edit_nome[index].innerHTML = "edit nome"
+            btn_edit_nome[index].value = "Editar";
+            //btn_edit_nome[index].setAttribute('type', 'submit');
             console.log(mode_nome);
         }
         
@@ -67,6 +75,7 @@ let input_edit_desc_mercado = document.querySelectorAll(".input_edit_desc_mercad
 let mode_desc = false;
 btn_edit_desc.forEach((item,index)=>{
     item.addEventListener("click",(t)=>{
+        //t.preventDefault();
         if (mode_desc == false){
             lbl_desc_mercado[index].style.display = "none";
             input_edit_desc_mercado[index].style.display = "block";

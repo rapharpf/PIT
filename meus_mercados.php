@@ -1,3 +1,18 @@
+<?php
+
+    if(isset($_POST["btn_edit_nome"])) {
+        
+
+        include_once "config.php";
+
+        $input_edit_nome = $_POST["input_edit_nome"];
+        
+        
+        $conexao->query("INSERT INTO cadastro_mercados(nome_mercado) 
+        VALUES ('$input_edit_nome')");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -27,34 +42,39 @@
         <h2>Meus Mercados</h2>
         <br><hr></br>
         <div id="meus_mercados_bg">
-            <table id="tabela_meus_mercados">
-                <tbody>
-                    <?php
-                        include_once "config.php";
-                        $resultado = $conexao->query("SELECT * FROM cadastro_mercados");
-                        if ($resultado->num_rows > 0) {
-                            // output data of each row
-                            while($row = $resultado->fetch_assoc()) {          
-                                print_r("    <tr>
-                                                        <th style='padding-top:20px'>Nome:</th>
-                                                        <td class ='input_edit_nome'><input type='text' name='input_edit_nome' placeholder='teste' value=".$row['nome_mercado']."></input></td>
-                                                        <td class='lbl_nome_mercado' style='padding:20px 0 0 0px'>".$row['nome_mercado']."</td>
-                                                        <td class='btn_edit_nome' style='padding:20px 0 0 0px'>edit nome</td>
-                                                        <td class='btn_del_mercado' style='padding:20px 0 0 0px'>delete</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Endereço:</th>
-                                                        <td class ='input_edit_desc_mercado'><input type='text' name='input_edit_desc_mercado' placeholder=".$row["desc_mercado"]." value=".$row["desc_mercado"]."></input></td>
-                                                        <td class='lbl_desc_mercado' style='padding-left:0px'>".$row["desc_mercado"]."</td>
-                                                        <td class='btn_edit_desc' style='padding-left:0px'>edit desc</td>
-                                                    </tr>");
+            <form method="POST" action="meus_mercados.php">
+                <table id="tabela_meus_mercados">
+                    <tbody>
+                        <?php
+                            include_once "config.php";
+                            $resultado = $conexao->query("SELECT * FROM cadastro_mercados");
+                            if ($resultado->num_rows > 0) {
+                                // output data of each row
+                                while($row = $resultado->fetch_assoc()) {          
+                                    print_r("    <tr>
+                                                            <th style='padding-top:20px'>Nome:</th>
+                                                            <td class='id_db'>".$row['id']."</td>
+                                                            <td class='input_edit_nome'><input type='text' name='input_edit_nome' placeholder=".$row['nome_mercado']." value=".$row['nome_mercado']."></input></td>
+                                                            <td class='lbl_nome_mercado' name='lbl_nome_mercado' style='padding:20px 0 0 0px'>".$row['nome_mercado']."</td>
+                                                            <td class='fbtn_edit_nome'><input class='btn_edit_nome' type='button' name='btn_edit_nome' value='Editar'></input></td>
+                                                            <td class='btn_del_mercado' style='padding:20px 0 0 0px'>delete</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Endereço:</th>
+                                                            <td class ='input_edit_desc_mercado'><input type='text' name='input_edit_desc_mercado' placeholder=".$row["desc_mercado"]." value=".$row["desc_mercado"]."></input></td>
+                                                            <td class='lbl_desc_mercado' style='padding-left:0px'>".$row["desc_mercado"]."</td>
+                                                            <td class='btn_edit_desc' style='padding-left:0px'>edit desc</td>
+                                                        </tr>");
+                                }
+                            } else {
+                                echo "Sem registros";
                             }
-                        } else {
-                            echo "Nada";
-                        }
-                    ?>
-                </tbody>
-            </table>
+
+
+                        ?>
+                    </tbody>
+                </table>
+            </form>
         </div>
     </div>   
     <script src="script.js"></script>
