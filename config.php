@@ -14,3 +14,4 @@
         //echo "Conexao efetuada com sucesso.";
     }
     
+    //$conexao->close();

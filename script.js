@@ -34,9 +34,10 @@ function cadastrarMercado() {
 
 let btn_edit_nome = document.querySelectorAll('.btn_edit_nome');
 let lbl_nome_mercado = document.querySelectorAll(".lbl_nome_mercado");
+let finput_edit_nome = document.querySelectorAll(".finput_edit_nome");
 let input_edit_nome = document.querySelectorAll(".input_edit_nome");
-//console.log(btn_edit_nome[0].getAttribute('type'));
-//btn_edit_nome[0].setAttribute('type', 'button');
+let btn_submit_nome = document.querySelectorAll(".btn_submit_nome");
+
 
 
 let mode_nome = false;
@@ -45,23 +46,53 @@ btn_edit_nome.forEach((item, index)=>{
         //t.preventDefault();
         if (mode_nome == false){
             lbl_nome_mercado[index].style.display = "none";
-            input_edit_nome[index].style.display = "block";
-            mode_nome = true;
-            btn_edit_nome[index].value = "Gravar"
-            //btn_edit_nome[index].setAttribute('type', 'button');
-            console.log(mode_nome);
+            finput_edit_nome[index].style.display = "block";
+            //mode_nome = true;
+            btn_edit_nome[index].style.display = "none";
+            btn_submit_nome[index].style.display = "block";
+            //console.log(mode_nome);
         }else {
-            lbl_nome_mercado[index].innerHTML = input_edit_nome[index].firstElementChild.value;
-            lbl_nome_mercado[index].style.display = "block";
-            input_edit_nome[index].style.display = "none";
-            mode_nome = false;
-            btn_edit_nome[index].value = "Editar";
-            //btn_edit_nome[index].setAttribute('type', 'submit');
-            console.log(mode_nome);
+            //lbl_nome_mercado[index].innerHTML = input_edit_nome[index].firstElementChild.value;
+            //lbl_nome_mercado[index].style.display = "block";
+            //input_edit_nome[index].style.display = "none";
+            //mode_nome = false;
+            //console.log(mode_nome);
+            console.log("Não funcionou");
         }
         
     });
 });
+
+/*function submit(item, index){
+    item.addEventListener("click",(t)=>{
+        console.log("submit mode");
+        console.log(input_edit_nome[index].value)
+        lbl_nome_mercado[index].innerHTML = input_edit_nome[index].value;
+        lbl_nome_mercado[index].style.display = "block";
+        finput_edit_nome[index].style.display = "none";
+        btn_edit_nome[index].style.display = "block";
+        btn_submit_nome[index].style.display = "none";
+        console.log("fim");
+    })
+}
+
+*/
+
+
+btn_submit_nome.forEach((item, index)=>{
+    item.addEventListener("click",(t)=>{
+        //t.preventDefault();
+        console.log("modo submit");
+        console.log(input_edit_nome[index].value);
+        lbl_nome_mercado[index].innerHTML = input_edit_nome[index].value;
+        lbl_nome_mercado[index].style.display = "block";
+        finput_edit_nome[index].style.display = "none";
+        btn_edit_nome[index].style.display = "block";
+        btn_submit_nome[index].style.display = "none";
+        }
+    )
+});
+
 
 
 

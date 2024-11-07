@@ -78,15 +78,15 @@ body {
    overflow: auto;
 }
 
-#tabela_meus_mercados {
+.tabela_meus_mercados {
    width: 100%;
    height: 95%;
    text-align: left;
    padding: 10px 10px 10px 10px;
    font-size: 24px;
    background-color: rgb(30, 30, 30, 0.6);
-   border-radius: 10px 10px 10px 10px;
-   border-style: solid;  
+   border-radius: 0;
+   border-style: none;  
 }
 
 /*  nome mercado */
@@ -97,13 +97,13 @@ body {
    display: block;
 }
 
-.input_edit_nome{
+.finput_edit_nome{
    display: none;
    margin-top: 20px;
    font-size: 20px;
 }
 
-.input_edit_nome input{
+.finput_edit_nome input{
    font-size: 20px;
 }
 
@@ -112,6 +112,15 @@ body {
    display:block;
 }
 
+.btn_edit_nome{
+   display: block;
+
+}
+
+.btn_submit_nome{
+   display: none;
+
+}
 
 /*  descrição mercado */
 .input_edit_desc_mercado{ 
@@ -123,3 +132,4 @@ body {
 .input_edit_desc_mercado input{ 
    font-size:20px;
 }
+
