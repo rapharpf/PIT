@@ -40,60 +40,26 @@ let btn_submit_nome = document.querySelectorAll(".btn_submit_nome");
 
 
 
-let mode_nome = false;
 btn_edit_nome.forEach((item, index)=>{
     item.addEventListener("click",(t)=>{
-        //t.preventDefault();
-        if (mode_nome == false){
+        form_id = index + 1;
+        form_id = form_id.toString();
+        let form = document.getElementById(form_id);
+        if (btn_edit_nome[index].innerHTML == "Editar"){
             lbl_nome_mercado[index].style.display = "none";
             finput_edit_nome[index].style.display = "block";
-            //mode_nome = true;
-            btn_edit_nome[index].style.display = "none";
-            btn_submit_nome[index].style.display = "block";
-            //console.log(mode_nome);
+            btn_edit_nome[index].innerHTML = "Salvar";
         }else {
-            //lbl_nome_mercado[index].innerHTML = input_edit_nome[index].firstElementChild.value;
-            //lbl_nome_mercado[index].style.display = "block";
-            //input_edit_nome[index].style.display = "none";
-            //mode_nome = false;
-            //console.log(mode_nome);
-            console.log("Não funcionou");
+            console.log(input_edit_nome[index].value);
+            lbl_nome_mercado[index].innerHTML = input_edit_nome[index].value;
+            lbl_nome_mercado[index].style.display = "block";
+            finput_edit_nome[index].style.display = "none";
+            btn_edit_nome[index].innerHTML = "Editar";
+            form.submit();
         }
         
     });
 });
-
-/*function submit(item, index){
-    item.addEventListener("click",(t)=>{
-        console.log("submit mode");
-        console.log(input_edit_nome[index].value)
-        lbl_nome_mercado[index].innerHTML = input_edit_nome[index].value;
-        lbl_nome_mercado[index].style.display = "block";
-        finput_edit_nome[index].style.display = "none";
-        btn_edit_nome[index].style.display = "block";
-        btn_submit_nome[index].style.display = "none";
-        console.log("fim");
-    })
-}
-
-*/
-
-
-btn_submit_nome.forEach((item, index)=>{
-    item.addEventListener("click",(t)=>{
-        //t.preventDefault();
-        console.log("modo submit");
-        console.log(input_edit_nome[index].value);
-        lbl_nome_mercado[index].innerHTML = input_edit_nome[index].value;
-        lbl_nome_mercado[index].style.display = "block";
-        finput_edit_nome[index].style.display = "none";
-        btn_edit_nome[index].style.display = "block";
-        btn_submit_nome[index].style.display = "none";
-        }
-    )
-});
-
-
 
 
 
@@ -103,24 +69,41 @@ let lbl_desc_mercado = document.querySelectorAll(".lbl_desc_mercado");
 let input_edit_desc_mercado = document.querySelectorAll(".input_edit_desc_mercado");
 
 
-let mode_desc = false;
+
+
 btn_edit_desc.forEach((item,index)=>{
     item.addEventListener("click",(t)=>{
+        form_id = index + 1;
+        form_id = form_id.toString();
+        let form = document.getElementById(form_id);
         //t.preventDefault();
-        if (mode_desc == false){
+        if (btn_edit_desc[index].innerHTML == "Editar"){
             lbl_desc_mercado[index].style.display = "none";
             input_edit_desc_mercado[index].style.display = "block";
-            mode_desc = true;
-            btn_edit_desc[index].innerHTML = "gravar"
-            console.log(mode_desc);
+            btn_edit_desc[index].innerHTML = "Salvar";
         }else {
             lbl_desc_mercado[index].innerHTML = input_edit_desc_mercado[index].firstElementChild.value;
             lbl_desc_mercado[index].style.display = "block";
             input_edit_desc_mercado[index].style.display = "none";
-            mode_desc = false;
-            btn_edit_desc[index].innerHTML = "edit desc"
-            console.log(mode_desc);
+            btn_edit_desc[index].innerHTML = "Editar";
+            form.submit();
         }
         
+    });
+});
+
+
+// Função para deletar entrada mercado
+
+let btn_del_mercado = document.querySelectorAll(".btn_del_mercado");
+
+btn_del_mercado.forEach((item,index)=>{
+    item.addEventListener("click",(t)=>{
+        let s_del = document.querySelectorAll(".s_del")[index].value;
+        form_id = s_del.toString();
+        let form = document.getElementById(form_id);
+        console.log(index);
+        console.log(form);
+        form.submit();
     });
 });

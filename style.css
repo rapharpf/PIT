@@ -76,6 +76,9 @@ body {
    height: 100%;
    padding-left: 1px;
    overflow: auto;
+   border-style: solid;
+   border-radius: 20px 20px 20px 20px;
+   border-width: 1px;
 }
 
 .tabela_meus_mercados {
@@ -89,18 +92,30 @@ body {
    border-style: none;  
 }
 
+.th{
+   width: 10%;
+   padding-top:20px;
+}
+
 /*  nome mercado */
 .id_db {
    display: none;
 }
 .lbl_nome_mercado {
+   padding-top: 20px;
    display: block;
 }
 
 .finput_edit_nome{
+   width: 15%;
    display: none;
    margin-top: 20px;
    font-size: 20px;
+}
+
+.btn_edit_nome{
+   width: 10%;
+   cursor: pointer;
 }
 
 .finput_edit_nome input{
@@ -112,16 +127,10 @@ body {
    display:block;
 }
 
-.btn_edit_nome{
-   display: block;
-
+.btn_del_mercado{
+   width: 10%;
+   cursor: pointer;
 }
-
-.btn_submit_nome{
-   display: none;
-
-}
-
 /*  descrição mercado */
 .input_edit_desc_mercado{ 
    display: none;
@@ -133,3 +142,10 @@ body {
    font-size:20px;
 }
 
+.btn_edit_desc{
+   cursor: pointer;
+}
+
+.f_del, .s_del{
+   display: none;
+}
