@@ -1,7 +1,7 @@
 <?php
 
 
-class Listar{
+class Cadastro_mercados{
 
     //  Fazer um if criar um método listar para cada tabela do bd.
     public $id;
@@ -9,13 +9,13 @@ class Listar{
     public $nome_edit;
     public $desc_mkt;
 
-    function __construct($id, $nome_mkt, $desc_mkt){
+    function __construct($id = 0, $nome_mkt = '', $desc_mkt = ''){
         $this->id = $id;
         $this->nome_mkt = $nome_mkt;
         $this->desc_mkt = $desc_mkt;
     }
 
-    function listar_print(){
+    function cadastro_mercado_print(){
         print_r("
             
             <form id=".$this->id." method='POST' action='meus_mercados.php'>
@@ -44,5 +44,23 @@ class Listar{
     
     }
 
+//   Implementar depois
+    
+    function listar(){
+        include "config.php";
+        $resultado = $conexao->query("SELECT * FROM cadastro_mercados");
+        if ($resultado->num_rows > 0) {
+            //include "config.php";
+            // output data of each row
+            while($row = $resultado->fetch_assoc()) {          
+                $Listar = new Cadastro_mercados($row['id'], $row['nome_mercado'], $row['desc_mercado']);
+                $Listar->cadastro_mercado_print();
+            }
+        } else {
+                echo "Sem registros";
+        }
+    }
+
 }
+
 ?>

@@ -2,14 +2,29 @@
 
     if(isset($_POST["btn_cadastrar_usuario"])) {
         
+        include "teste.php";
 
-        include_once "config.php";
-
+        /*
         $input_cadastro_usuario = $_POST["input_cadastro_usuario"];
         $input_cadastro_senha = $_POST["input_cadastro_senha"];
         
         $conexao->query("INSERT INTO usuarios(user, passwd) 
         VALUES ('$input_cadastro_senha', '$input_cadastro_senha')");
+        */
+
+        $input_cadastro_usuario = $_POST["input_cadastro_usuario"];
+        $input_cadastro_senha = $_POST["input_cadastro_senha"];
+
+
+        $cadastrar = new Usuarios(0, "$input_cadastro_usuario", "$input_cadastro_senha", "...");
+        $cadastrar->insert();
+
+        $minha_lista = new Lista_compras(0, 0, "compras_janeiro", 0);
+        $minha_lista->create();
+
+
+
+
     }
 ?>
 

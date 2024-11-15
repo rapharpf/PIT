@@ -1,8 +1,16 @@
 <?php
 
     if(isset($_POST["btn_cadastrar_mercado"])) {
-        
 
+        include_once "teste.php";
+
+        $cadastro_nome_mercado = $_POST["cadastro_nome_mercado"];
+        $endereco_mercado = $_POST["endereco_mercado"];
+
+        $cadastrar_mercado = new Cadastro_mercados(0, $cadastro_nome_mercado, $endereco_mercado);
+        $cadastrar_mercado->insert();
+        
+        /*
         include_once "config.php";
 
         $cadastro_nome_mercado = $_POST["cadastro_nome_mercado"];
@@ -10,6 +18,7 @@
         
         $conexao->query("INSERT INTO cadastro_mercados(nome_mercado, desc_mercado) 
         VALUES ('$cadastro_nome_mercado', '$endereco_mercado')");
+        */
     }
 ?>
 

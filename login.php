@@ -25,7 +25,7 @@
             print_r('O usuário existe');
         } else {
             print_r('Não achado');
-            header("Location: index.php");
+            header("Location: login.php");
         }
     }
 ?>
@@ -57,10 +57,10 @@
     <!--Para que o menu empurre a página para o lado, o seu conteúdo
     deve ficar dentro da div "main"-->
     <div id="main">
-        <h2>Bem Vindo!!!</h2>
+        <h2>TESTE</h2>
         <br><hr><br>
         <div id="login_box">
-            <form action="index.php", method="POST">
+            <form action="login.php", method="POST">
                 <h2>Login</h2>
                 <label>Login</label>
                 <input type='text' name='input_usuario_login' id='input_usuario_login' value='' placeholder='Usuário'></input><br>

@@ -59,20 +59,11 @@
         <h2>Meus Mercados</h2>
         <br><hr></br>
         <div id="meus_mercados_bg">        
-                        <?php
-                            include_once "config.php";
-                            include_once "control_teste.php";
-                            $resultado = $conexao->query("SELECT * FROM cadastro_mercados");
-                            if ($resultado->num_rows > 0) {
-                                // output data of each row
-                                while($row = $resultado->fetch_assoc()) {          
-                                    $Listar = new Listar($row['id'], $row['nome_mercado'], $row['desc_mercado']);
-                                    $Listar->listar_print();
-                                }
-                            } else {
-                                echo "Sem registros";
-                            }
-                        ?>
+        <?php
+            include_once "teste.php";
+            $lista_meus_mercados = new Cadastro_mercados();
+            $lista_meus_mercados->listar();
+        ?>
         </div>
     </div>   
     <script src="script.js"></script>
