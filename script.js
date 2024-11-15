@@ -16,6 +16,7 @@ function closeNav() {
     document.body.style.backgroundColor = "rgba(40,40,40)";
 }
 
+
 // Página de cadastro
 
 
@@ -23,8 +24,6 @@ function cadastrarMercado() {
     console.log(document.getElementById("cadastro_nome_mercado").value);
     console.log(document.getElementById("endereco_mercado").value);
     alert("Mercado cadastrado com sucesso!")
-    //document.getElementById("cadastro_nome_mercado").value = ""
-    //document.getElementById("endereco_mercado").value = ""
 }
 
 
@@ -36,19 +35,19 @@ let btn_edit_nome = document.querySelectorAll('.btn_edit_nome');
 let lbl_nome_mercado = document.querySelectorAll(".lbl_nome_mercado");
 let finput_edit_nome = document.querySelectorAll(".finput_edit_nome");
 let input_edit_nome = document.querySelectorAll(".input_edit_nome");
-let btn_submit_nome = document.querySelectorAll(".btn_submit_nome");
+
 
 
 
 btn_edit_nome.forEach((item, index)=>{
     item.addEventListener("click",(t)=>{
-        form_id = index + 1;
-        form_id = form_id.toString();
+        let form_id = document.querySelectorAll('.id_db')[index].firstElementChild.value;
         let form = document.getElementById(form_id);
         if (btn_edit_nome[index].innerHTML == "Editar"){
             lbl_nome_mercado[index].style.display = "none";
             finput_edit_nome[index].style.display = "block";
             btn_edit_nome[index].innerHTML = "Salvar";
+            s_del[index].setAttribute("disabled", "true");
         }else {
             console.log(input_edit_nome[index].value);
             lbl_nome_mercado[index].innerHTML = input_edit_nome[index].value;
@@ -73,14 +72,13 @@ let input_edit_desc_mercado = document.querySelectorAll(".input_edit_desc_mercad
 
 btn_edit_desc.forEach((item,index)=>{
     item.addEventListener("click",(t)=>{
-        form_id = index + 1;
-        form_id = form_id.toString();
+        let form_id = document.querySelectorAll('.id_db')[index].firstElementChild.value;
         let form = document.getElementById(form_id);
-        //t.preventDefault();
         if (btn_edit_desc[index].innerHTML == "Editar"){
             lbl_desc_mercado[index].style.display = "none";
             input_edit_desc_mercado[index].style.display = "block";
             btn_edit_desc[index].innerHTML = "Salvar";
+            s_del[index].setAttribute("disabled", "true");  // Não deixa apagar a entrada alterada quando da submit
         }else {
             lbl_desc_mercado[index].innerHTML = input_edit_desc_mercado[index].firstElementChild.value;
             lbl_desc_mercado[index].style.display = "block";
@@ -95,12 +93,12 @@ btn_edit_desc.forEach((item,index)=>{
 
 // Função para deletar entrada mercado
 
+let s_del = document.getElementsByName("s_del");
 let btn_del_mercado = document.querySelectorAll(".btn_del_mercado");
 
 btn_del_mercado.forEach((item,index)=>{
     item.addEventListener("click",(t)=>{
-        let s_del = document.querySelectorAll(".s_del")[index].value;
-        form_id = s_del.toString();
+        let form_id = document.querySelectorAll('.id_db')[index].firstElementChild.value;
         let form = document.getElementById(form_id);
         console.log(index);
         console.log(form);

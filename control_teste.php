@@ -1,6 +1,9 @@
 <?php
 
+
 class Listar{
+
+    //  Fazer um if criar um método listar para cada tabela do bd.
     public $id;
     public $nome_mkt;
     public $nome_edit;

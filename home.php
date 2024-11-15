@@ -13,7 +13,7 @@
         <a href="javascript:void(0)" id="closeBtn" onclick="closeNav()">&times;</a>
         <a href="cadastrar_mercado.php">Cadastrar Mercado</a>
         <a href="meus_mercados.php">Meus Mercados</a>
-        <a href="#">Criar Lista</a>
+        <a href="criar_lista.php">Criar Lista</a>
         <a href="#">Minhas Listas</a>
         <a href="#">Minhas Compras</a>
     </div>
@@ -21,7 +21,7 @@
     <!--Elemento para abrir a barra lateral-->
     <!--<span id="openBtn" onclick="openNav()">=</span>-->
 
-    <!--Para que o menu impurre a página para o lado, o seu conteúdo
+    <!--Para que o menu empurre a página para o lado, o seu conteúdo
     deve ficar dentro da div "main"-->
     <div id="main">
         <h2>Bem Vindo!!!</h2>

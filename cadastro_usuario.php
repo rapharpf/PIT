@@ -1,15 +1,15 @@
 <?php
 
-    if(isset($_POST["btn_cadastrar_mercado"])) {
+    if(isset($_POST["btn_cadastrar_usuario"])) {
         
 
         include_once "config.php";
 
-        $cadastro_nome_mercado = $_POST["cadastro_nome_mercado"];
-        $endereco_mercado = $_POST["endereco_mercado"];
+        $input_cadastro_usuario = $_POST["input_cadastro_usuario"];
+        $input_cadastro_senha = $_POST["input_cadastro_senha"];
         
-        $conexao->query("INSERT INTO cadastro_mercados(nome_mercado, desc_mercado) 
-        VALUES ('$cadastro_nome_mercado', '$endereco_mercado')");
+        $conexao->query("INSERT INTO usuarios(user, passwd) 
+        VALUES ('$input_cadastro_senha', '$input_cadastro_senha')");
     }
 ?>
 
@@ -27,7 +27,7 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" id="openBtn" onclick="openNav()">&equiv;</a>
         <a href="javascript:void(0)" id="closeBtn" onclick="closeNav()">&times;</a>
-        <a href="home.php">Início</a>
+        <a href="index.php">Início</a>
         <a href="cadastrar_Mercado.php">Cadastrar Mercado</a>
         <a href="meus_mercados.php">Meus Mercados</a>
         <a href="criar_lista.php">Criar Lista</a>
@@ -41,14 +41,14 @@
     <!--Para que o menu empurre a página para o lado, o seu conteúdo
     deve ficar dentro da div "main"-->
     <div id="main">
-        <h2>Cadastrar Mercado</h2>
+        <h2>Cadastrar Usuário</h2>
         <br><hr><br>
-        <form action="cadastrar_mercado.php", method="POST">
-            <label for="cadastro_nome_mercado">Nome do mercado:</label><br>
-            <input type="text" id="cadastro_nome_mercado" name="cadastro_nome_mercado" placeholder="Nome do mercado"></input><br>
-            <label for="endereco_mercado">Endereço/Descrição</label><br>
-            <input type="text" id="endereco_mercado" name="endereco_mercado" placeholder="Rua fulano de tal, N. 3/4"><br>
-            <input type="submit" class="btn" id="btn_cadastrar_mercado" name="btn_cadastrar_mercado" value="Cadastrar" onclick="cadastrarMercado()"></input>
+        <form action="cadastro_usuario.php", method="POST">
+            <label id="cadastro_usuario">Usuário:</label>
+            <input type="text" id="input_cadastro_usuario" name="input_cadastro_usuario" placeholder="Nome de usuário"><br>
+            <label id='cadastro_senha'>Senha:</label>
+            <input type="password" id="input_cadastro_senha" name="input_cadastro_senha" placeholder="Digite uma senha"><br>
+            <input type="submit" class="btn" id="btn_cadastrar_usuario" name="btn_cadastrar_usuario" value="Cadastrar">
         </form>
     </div>
         <script src="script.js"></script>
