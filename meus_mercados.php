@@ -1,12 +1,16 @@
 
 <?php
+
+    include_once "teste.php";
+
     if(isset($_POST["input_edit_nome"])) {
-        
+
         include_once "config.php";
         $input_edit_nome = $_POST["input_edit_nome"];
         $id = $_POST["lbl_id"];
         $sql = "UPDATE `marketdb`.`cadastro_mercados` SET `nome_mercado` = '$input_edit_nome' WHERE (`id` = '$id');";
         $conexao->query($sql);
+        
     }
 
     if(isset($_POST["input_edit_desc_mercado"])) {
@@ -16,15 +20,17 @@
         $id = $_POST["lbl_id"];
         $sql = "UPDATE `marketdb`.`cadastro_mercados` SET `desc_mercado` = '$input_edit_desc_mercado' WHERE (`id` = '$id');";
         $conexao->query($sql);
+    
     }
 
     if(isset($_POST["s_del"])) {
-
+        
         include_once "config.php";
         $s_del = $_POST["s_del"];
         $id = $_POST["lbl_id"];
         $sql = "DELETE FROM `marketdb`.`cadastro_mercados` WHERE (`id` = '$id');";
         $conexao->query($sql);
+        
     }
 ?>
 

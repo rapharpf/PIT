@@ -28,14 +28,25 @@
         <h2>Criar lista</h2>
         <br><hr><br>
         <div>
-        <h3>criando lista</h3>
+        <h3>Crie a sua lista</h3>
+        
+            <label for="">Selecione o mercado onde fará suas compras: </label>
+            <?php
+                    include "teste.php";
+                    $teste = new Lista_compras();
+                    $select_mercados = $teste->consulta_mercados();
+                    $entradas_select = count($select_mercados);
+                    $count = 0;
+                    print_r("<select name='escolher_mercado' id=''>");
+                    while($entradas_select > $count){
+                        print_r("<option value='{$select_mercados[$count]}'>{$select_mercados[$count]}</option>");
+                        ++$count;
+                    }
+                    print_r("</select>");
+            ?>
+            <br><br><br>
             <label for="">Nome da lista: </label><input type="text" name="nome_nova_lista" placeholder="Nome da lista">
-            <label for="">Selecione o mercado:</label><br>
-            <select name="mercados" id="">
-                <option value=""></option>
-            </select>
-
-
+            <br><br><br>
         </div>
     
     </div>   
