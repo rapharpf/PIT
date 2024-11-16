@@ -19,11 +19,6 @@
         $cadastrar = new Usuarios(0, "$input_cadastro_usuario", "$input_cadastro_senha", "...");
         $cadastrar->insert();
 
-        $minha_lista = new Lista_compras(0, 0, "compras_janeiro", 0);
-        $minha_lista->create();
-
-
-
 
     }
 ?>
