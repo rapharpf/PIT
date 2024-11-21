@@ -14,7 +14,7 @@
         <a href="cadastrar_mercado.php">Cadastrar Mercado</a>
         <a href="meus_mercados.php">Meus Mercados</a>
         <a href="criar_lista.php">Criar Lista</a>
-        <a href="#">Minhas Listas</a>
+        <a href="minha_lista.php">Minhas Listas</a>
         <a href="#">Minhas Compras</a>
     </div>
 

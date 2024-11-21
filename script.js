@@ -100,8 +100,37 @@ btn_del_mercado.forEach((item,index)=>{
     item.addEventListener("click",(t)=>{
         let form_id = document.querySelectorAll('.id_db')[index].firstElementChild.value;
         let form = document.getElementById(form_id);
-        console.log(index);
-        console.log(form);
         form.submit();
+    });
+});
+
+
+
+// Página criar_lista
+
+
+// Exibir lista de itens
+let lista_de_itens = document.querySelectorAll(".lista_de_itens");
+let btn_selecionar_lista = document.getElementsByName("selecionar_lista");
+
+btn_selecionar_lista.forEach((item,index)=>{
+    item.addEventListener("click",(t)=>{
+        console.log(lista_de_itens);
+        console.log(btn_selecionar_lista);
+    });
+});
+
+
+// Página minha lista> lista de itens
+
+let btn_edit_item = document.querySelectorAll(".btn_edit_item");
+let btn_del_item = document.querySelectorAll(".btn_del_item");
+
+btn_edit_item.forEach((item,index)=>{
+    item.addEventListener("click",(t)=>{
+        let form_id = document.querySelectorAll(".finput_id_item")[index].firstElementChild.value;
+        let form = document.getElementById("item_"+form_id);
+        form.submit();
+
     });
 });
