@@ -46,7 +46,7 @@
         echo "</pre>";*/
         $input_item = $_POST['input_item'];
         $input_qnt = $_POST['input_qnt'];
-        $input_valor = $_POST['input_valor'];
+        $input_valor = str_replace(",",".",$_POST['input_valor']);
         $input_nome_lista = $_POST['nome_lista'];
     
 

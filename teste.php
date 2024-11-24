@@ -279,7 +279,7 @@ class Itens_lista{
             `id_item` INT NOT NULL AUTO_INCREMENT,
             `item` VARCHAR(45) NULL,
             `qnt` INT NULL,
-            `valor` DOUBLE NULL,
+            `valor` DECIMAL(10,2) NULL,
             PRIMARY KEY (`id_item`),
             UNIQUE INDEX `id_item_UNIQUE` (`id_item` ASC) VISIBLE);";
 
@@ -338,10 +338,16 @@ class Itens_lista{
         if($this->nome_lista != ''){
             $resultado = $conexao->query($sql);
             if($resultado->num_rows > 0){
+                $valor_total = 0;
+                $preco_alterado;
                 while($row = $resultado->fetch_assoc()) {
-                    $Listar = new Itens_lista($row['id_item'], $row['item'], $row['qnt'], $row['valor'], "$this->nome_lista");
+                    $valor_alterado = str_replace(".",",", $row['valor']);
+                    $Listar = new Itens_lista($row['id_item'], $row['item'], $row['qnt'], "$valor_alterado", "$this->nome_lista");
                     $Listar->itens_lista_print();
+                    $valor_total += ($row['valor'] * $row['qnt']);
+                    $valor_total_alterado = str_replace(".",",", $valor_total);
                 }
+                print_r("<label><h3 style='background-color:rgb(30, 30, 30, 0.6);'>Valor total: R$ {$valor_total_alterado}</h3></label>");
             }else{
                     print_r("<label><h3 style='background-color:rgb(30, 30, 30, 0.6);'>Você ainda não adicionou nenhum item à esta lista.</h3></label>");
             }
@@ -356,7 +362,7 @@ class Itens_lista{
                 <table class='tabela_itens'>
                     <tbody>
                         <tr>
-                            <th class='lbl_item_nome'>Nome: </th>
+                            <th class='lbl_item_nome'>Item: </th>
                             <td class='finput_id_item' hidden='true'><input type='text' readonly='true' name='lbl_id' value='{$this->id_item}'></input></td>
                             <td class='finput_nome_item'><input class='input_nome_item' type='text' name='input_nome_item' readonly='true' placeholder='{$this->item}' value='{$this->item}'></input></td>
                             <th class='lbl_unidade_item'>Unidades: </th>
@@ -369,7 +375,10 @@ class Itens_lista{
                             <td class='btn_del_item'>Delete</td>
                             <td hidden><input class='btn_input_del_item' type='text' name='btn_del_item' readonly value='Delete'></input></td>
                             <td hidden><input class='item_nome_lista' type='text' name='item_nome_lista' readonly value='{$this->nome_lista}'></input></td>
-                            
+                            <td><label class='abrir_dropdown'>+</label></td>
+                        </tr>
+                        <tr class='dropdown_{$this->id_item}' hidden>
+                            <td>teste</td>
                         </tr>
                     </tbody>   
                 </table>    

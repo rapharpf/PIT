@@ -1,5 +1,9 @@
 <?php
 
+    session_start();
+
+
+
     if(isset($_POST["submit"]) && (!empty($_POST['input_usuario_login'])) && (!empty($_POST['input_passwd_login']))) {
         print_r($_POST);
         
@@ -21,10 +25,12 @@
         print_r('</pre>');
 
         if(mysqli_num_rows($result) > 0) {
+            $_SESSION['login'] = $input_usuario_login;
+            $_SESSION['senha'] = $input_passwd_login;
             header("location: home.php");
-            print_r('O usuário existe');
         } else {
-            print_r('Não achado');
+            unset($_SESSION['email']);
+            unset($_SESSION['senha']);
             header("Location: login.php");
         }
     }
