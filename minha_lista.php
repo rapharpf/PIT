@@ -4,6 +4,7 @@
     $input_nome_lista = "__sem_lista__";
 
     if(isset($_POST["criar_lista"])) {
+        //  Criar uma nova tabela de lista de itens e adiciona a lista na tabela lista de itens
         /*echo "<pre>";
         var_dump($_POST);
         echo "</pre>";*/
@@ -19,14 +20,15 @@
     }
 
     if(isset($_POST["selecionar_lista"])) {
+        // Selecionar uma das listas itens
         /*echo "<pre>";
         var_dump($_POST);
         echo "</pre>";*/
         $input_nome_lista = $_POST['nome_lista'];
-    
     }
 
     if(isset($_POST["remover_lista"])) {
+        //  Remover uma lista de itens da tabela lista de itens e remover a tabela da lista
         /*echo "<pre>";
         var_dump($_POST);
         echo "</pre>";*/
@@ -35,11 +37,10 @@
         $remover_lista_compras->remove();
         $remover_lista_itens = new Itens_lista(0,0,0,0, "$input_nome_remove_lista");
         $remover_lista_itens->drop();
-
-    
     }
 
     if(isset($_POST["adicionar_item"])) {
+        //  Adicionar um item à lista de itens
         /*echo "<pre>";
         var_dump($_POST);
         echo "</pre>";*/
@@ -52,6 +53,39 @@
         $adicionar_item_lista = new Itens_lista(0, "$input_item", "$input_qnt", "$input_valor", "$input_nome_lista");
         $adicionar_item_lista->insert();
 
+    }
+
+    if(isset($_POST["btn_edit_item"])) {
+        //  Editar um item da lista de itens
+        /*echo "<pre>";
+        var_dump($_POST);
+        echo "</pre>";*/
+        $input_id_item = $_POST['lbl_id'];
+        $input_nome_item = $_POST['input_nome_item'];
+        $input_qnt_item = $_POST['input_qnt_item'];
+        $input_valor_item = $_POST['input_valor_item'];
+        $input_nome_lista = $_POST['item_nome_lista'];
+    
+
+        $adicionar_item_lista = new Itens_lista("$input_id_item", "$input_nome_item", "$input_qnt_item", "$input_valor_item", "$input_nome_lista");
+        $adicionar_item_lista->update();
+    }
+
+
+    if(isset($_POST["btn_del_item"])) {
+        //  Remover um item da lista de itens
+        /*echo "<pre>";
+        var_dump($_POST);
+        echo "</pre>";*/
+        $input_id_item = $_POST['lbl_id'];
+        $input_nome_item = $_POST['input_nome_item'];
+        $input_qnt_item = $_POST['input_qnt_item'];
+        $input_valor_item = $_POST['input_valor_item'];
+        $input_nome_lista = $_POST['item_nome_lista'];
+    
+
+        $adicionar_item_lista = new Itens_lista("$input_id_item", "$input_nome_item", "$input_qnt_item", "$input_valor_item", "$input_nome_lista");
+        $adicionar_item_lista->remove();
     }
 ?>
 

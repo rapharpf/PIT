@@ -202,6 +202,11 @@ body {
    font-weight: 500;
    font-size: 20px;
    background-color: rgb(30, 30, 30, 0);
+   padding: 0px;
+   width: 80%;
+}
+.finput_nome_item, .finput_qnt, .finput_valor_item {
+   width: 20%;
 }
 
 .lbl_item_nome, .lbl_unidade_item { 
@@ -212,15 +217,13 @@ body {
    width: 95px;
 }
 
-.input_nome_item, .input_qnt_item, .input_valor_item {
-   padding: 0px;
-   margin: 0px;
-   width: 90%;
-}
-
 .btn_edit_item, .btn_del_item{
    cursor: pointer;
 
+}
+
+.btn_edit_item{
+   padding-right: 5%;
 }
 
 

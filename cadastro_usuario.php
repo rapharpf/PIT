@@ -4,6 +4,10 @@
         
         include "teste.php";
 
+        /*echo "<pre>";
+        var_dump($_POST);
+        echo "</pre>";*/
+
         /*
         $input_cadastro_usuario = $_POST["input_cadastro_usuario"];
         $input_cadastro_senha = $_POST["input_cadastro_senha"];

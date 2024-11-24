@@ -4,10 +4,14 @@
 
         include_once "teste.php";
 
+        /*echo "<pre>";
+        var_dump($_POST);
+        echo "</pre>";*/
+
         $cadastro_nome_mercado = $_POST["cadastro_nome_mercado"];
         $endereco_mercado = $_POST["endereco_mercado"];
 
-        $cadastrar_mercado = new Cadastro_mercados(0, $cadastro_nome_mercado, $endereco_mercado);
+        $cadastrar_mercado = new Cadastro_mercados(0, "$cadastro_nome_mercado", "$endereco_mercado");
         $cadastrar_mercado->insert();
         
         /*

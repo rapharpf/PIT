@@ -3,23 +3,31 @@
 
     include_once "teste.php";
 
+
     if(isset($_POST["input_edit_nome"])) {
+        //echo "<pre>";
+        //var_dump($_POST);
+        //echo "</pre>";
 
         include_once "config.php";
         $input_edit_nome = $_POST["input_edit_nome"];
         $id = $_POST["lbl_id"];
-        $sql = "UPDATE `marketdb`.`cadastro_mercados` SET `nome_mercado` = '$input_edit_nome' WHERE (`id` = '$id');";
-        $conexao->query($sql);
+        $cadastro_mercados = new Cadastro_mercados("$id", "$input_edit_nome");
+        $cadastro_mercados->update_nome();
+        //$sql = "UPDATE `marketdb`.`cadastro_mercados` SET `nome_mercado` = '$input_edit_nome' WHERE (`id` = '$id');";
         
     }
 
     if(isset($_POST["input_edit_desc_mercado"])) {
+        //echo "<pre>";
+        //var_dump($_POST);
+        //echo "</pre>";
     
         include_once "config.php";
         $input_edit_desc_mercado = $_POST["input_edit_desc_mercado"];
         $id = $_POST["lbl_id"];
-        $sql = "UPDATE `marketdb`.`cadastro_mercados` SET `desc_mercado` = '$input_edit_desc_mercado' WHERE (`id` = '$id');";
-        $conexao->query($sql);
+        $cadastro_mercados = new Cadastro_mercados("$id", '', "$input_edit_desc_mercado");
+        $cadastro_mercados->update_desc();
     
     }
 
@@ -28,8 +36,8 @@
         include_once "config.php";
         $s_del = $_POST["s_del"];
         $id = $_POST["lbl_id"];
-        $sql = "DELETE FROM `marketdb`.`cadastro_mercados` WHERE (`id` = '$id');";
-        $conexao->query($sql);
+        $cadastro_mercados = new Cadastro_mercados("$id");
+        $cadastro_mercados->remove();
         
     }
 ?>
@@ -64,7 +72,7 @@
     <div id="main">
         <h2>Meus Mercados</h2>
         <br><hr></br>
-        <div id="meus_mercados_bg">        
+        <div id="meus_mercados_bg">
         <?php
             include_once "teste.php";
             $lista_meus_mercados = new Cadastro_mercados();

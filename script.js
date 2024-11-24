@@ -48,6 +48,7 @@ btn_edit_nome.forEach((item, index)=>{
             finput_edit_nome[index].style.display = "block";
             btn_edit_nome[index].innerHTML = "Salvar";
             s_del[index].setAttribute("disabled", "true");
+            console.log(form);
         }else {
             console.log(input_edit_nome[index].value);
             lbl_nome_mercado[index].innerHTML = input_edit_nome[index].value;
@@ -79,6 +80,7 @@ btn_edit_desc.forEach((item,index)=>{
             input_edit_desc_mercado[index].style.display = "block";
             btn_edit_desc[index].innerHTML = "Salvar";
             s_del[index].setAttribute("disabled", "true");  // Não deixa apagar a entrada alterada quando da submit
+            console.log(form);
         }else {
             lbl_desc_mercado[index].innerHTML = input_edit_desc_mercado[index].firstElementChild.value;
             lbl_desc_mercado[index].style.display = "block";
@@ -125,12 +127,38 @@ btn_selecionar_lista.forEach((item,index)=>{
 
 let btn_edit_item = document.querySelectorAll(".btn_edit_item");
 let btn_del_item = document.querySelectorAll(".btn_del_item");
+let input_nome_item = document.querySelectorAll(".input_nome_item");
+let input_qnt_item = document.querySelectorAll(".input_qnt_item");
+let input_valor_item = document.querySelectorAll(".input_valor_item");
+let input_edit_item = document.querySelectorAll(".btn_input_edit_item");
+let input_del_item = document.querySelectorAll(".btn_input_del_item");
+let item_nome_lista = document.querySelectorAll(".item_nome_lista");
 
+
+//  Editar um item da lista de itens
 btn_edit_item.forEach((item,index)=>{
     item.addEventListener("click",(t)=>{
         let form_id = document.querySelectorAll(".finput_id_item")[index].firstElementChild.value;
         let form = document.getElementById("item_"+form_id);
-        form.submit();
+        if(btn_edit_item[index].innerHTML == "Editar"){
+            input_del_item[index].setAttribute("disabled", "true"); // Não apaga o item ao dar submit
+            btn_edit_item[index].innerHTML = "Salvar";
+            console.log(input_valor_item[index]);
+            console.log(input_del_item[index]);
+            input_nome_item[index].removeAttribute("readonly");
+            input_qnt_item[index].removeAttribute("readonly");
+            input_valor_item[index].removeAttribute("readonly");
+        }else{
+            form.submit();
+        }
+    });
+});
 
+
+btn_del_item.forEach((item,index)=>{
+    item.addEventListener("click",(t)=>{
+        let form_id = document.querySelectorAll(".finput_id_item")[index].firstElementChild.value;
+        let form = document.getElementById("item_"+form_id);
+        form.submit();
     });
 });

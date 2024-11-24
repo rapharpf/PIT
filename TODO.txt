@@ -1,0 +1,15 @@
+- Fazer funções para interagir com cada tabela do bando de dados;
+- Adicionar data hora às listas criadas;
+- Organizar e configurar o banco de dados;
+- Ajeitar o estilo da pag minha_lista;
+- Implementar tabela tipo zebra e um on hover para distacar o item que o mouse estiver em cima;
+
+
+// Onde parei:
+    - Fazer o menu dropdown com os cálculos em relação às outras listas;
+
+
+
+// Melhorias
+- habilitar os fomulários só depois de clicar no botao editar;
+- Enviar o POST dos formuário para um arquivo PHP, processar e depois direcionar novamente para a pagina do formulário;
