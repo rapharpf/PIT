@@ -17,15 +17,6 @@ function closeNav() {
 }
 
 
-// Página de cadastro
-
-
-function cadastrarMercado() {
-    console.log(document.getElementById("cadastro_nome_mercado").value);
-    console.log(document.getElementById("endereco_mercado").value);
-    alert("Mercado cadastrado com sucesso!")
-}
-
 
 // Página meus mercados
 
@@ -41,6 +32,7 @@ let input_edit_nome = document.querySelectorAll(".input_edit_nome");
 
 btn_edit_nome.forEach((item, index)=>{
     item.addEventListener("click",(t)=>{
+        console.log("teste");
         let form_id = document.querySelectorAll('.id_db')[index].firstElementChild.value;
         let form = document.getElementById(form_id);
         if (btn_edit_nome[index].innerHTML == "Editar"){

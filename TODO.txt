@@ -1,15 +1,24 @@
-- Fazer funções para interagir com cada tabela do bando de dados;
-- Adicionar data hora às listas criadas;
-- Organizar e configurar o banco de dados;
-- Ajeitar o estilo da pag minha_lista;
-- Implementar tabela tipo zebra e um on hover para distacar o item que o mouse estiver em cima;
+
+// Para fazer:
+- Adicionar data hora às listas criadas (funcionalidade);
+- Organizar e configurar o banco de dados (estrutura do banco de dados);
+- Fazer o menu dropdown com os cálculos em relação às outras listas (funcionalidade);
+- Implementar tabela tipo zebra e um on hover para distacar o item que o mouse estiver em cima (estilo);
+- Implementar estilo em páginas que falta ex: Cadastro de usuário, Login e cadastro mercado;
+- Fazer as páginas de "contato" e "sobre";
+- Implementar o botão de "sair", para o usuário deslogar e fechar a sessão;
 
 
 // Onde parei:
-    - Fazer o menu dropdown com os cálculos em relação às outras listas;
+    - Terminei de passar para o MVC (ou quase isso);
 
 
 
 // Melhorias
-- habilitar os fomulários só depois de clicar no botao editar;
+- habilitar os fomulários só depois de clicar no botao editar (teste);
 - Enviar o POST dos formuário para um arquivo PHP, processar e depois direcionar novamente para a pagina do formulário;
+- Sanitizar os campos de entrada (segurança);
+- Rever a interação com o banco de dados (segurança);
+
+
+

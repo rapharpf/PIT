@@ -65,7 +65,7 @@ class Cadastro_mercados{
     function cadastro_mercado_print(){
         print_r("
             
-            <form id='{$this->id}' method='POST' action='meus_mercados.php'>
+            <form id='{$this->id}' method='POST' action='.\..\Control\meus_mercados_c.php'>
                 <table class='tabela_meus_mercados'>
                     <tbody>
                         <tr>
@@ -295,6 +295,7 @@ class Itens_lista{
     }
     function update(){
         include "config.php";
+        //UPDATE `marketdb`.`ffff` SET `item` = 'ac', `qnt` = '2', `valor` = '2.22' WHERE (`id_item` = '1');
         $sql = "UPDATE `marketdb`.`{$this->nome_lista}` SET `item` = '{$this->item}', `qnt` = '{$this->qnt}', `valor` = '{$this->valor}' WHERE (`id_item` = '{$this->id_item}');";
         $conexao->query($sql);
         $conexao->close();
@@ -358,7 +359,7 @@ class Itens_lista{
 
         print_r("
             
-            <form id='item_{$this->id_item}' method='POST' action='minha_lista.php'>
+            <form id='item_{$this->id_item}' method='POST' action='.\..\Control\minha_lista_c.php'>
                 <table class='tabela_itens'>
                     <tbody>
                         <tr>
@@ -375,7 +376,7 @@ class Itens_lista{
                             <td class='btn_del_item'>Delete</td>
                             <td hidden><input class='btn_input_del_item' type='text' name='btn_del_item' readonly value='Delete'></input></td>
                             <td hidden><input class='item_nome_lista' type='text' name='item_nome_lista' readonly value='{$this->nome_lista}'></input></td>
-                            <td><label class='abrir_dropdown'>+</label></td>
+                            <td hidden><label class='abrir_dropdown'>+</label></td>
                         </tr>
                         <tr class='dropdown_{$this->id_item}' hidden>
                             <td>teste</td>

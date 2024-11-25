@@ -1,3 +1,21 @@
+
+<?php
+
+    session_start();
+    if((isset($_SESSION['login']) == true) and (isset($_SESSION['senha']) == true)){
+        $logado = $_SESSION['login'];
+
+    }else{
+        unset($_SESSION['login']);
+        unset($_SESSION['senha']);
+        header('Location: login.php');
+    }
+
+    include ".\..\Model\\teste.php";
+    
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,11 +29,13 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" id="openBtn" onclick="openNav()">&equiv;</a>
         <a href="javascript:void(0)" id="closeBtn" onclick="closeNav()">&times;</a>
+        <a href="home.php">Início</a>
         <a href="cadastrar_mercado.php">Cadastrar Mercado</a>
         <a href="meus_mercados.php">Meus Mercados</a>
-        <a href="criar_lista.php">Criar Lista</a>
         <a href="minha_lista.php">Minhas Listas</a>
-        <a href="#">Minhas Compras</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+        <a href="#"><button>Sair</button></a>
     </div>
 
     <!--Elemento para abrir a barra lateral-->
@@ -24,9 +44,15 @@
     <!--Para que o menu empurre a página para o lado, o seu conteúdo
     deve ficar dentro da div "main"-->
     <div id="main">
-        <h2>Bem Vindo!!!</h2>
-        <br><hr><br>
-    </div>
-    <script src="script.js"></script>
+        <h2>Meus Mercados</h2>
+        <br><hr></br>
+        <div id="meus_mercados_bg">
+        <?php
+            $lista_meus_mercados = new Cadastro_mercados();
+            $lista_meus_mercados->listar();
+        ?>
+        </div>
+    </div>   
+    <script src=".\..\Control\script.js"></script>
 </body>
 </html>

@@ -1,43 +1,24 @@
 <?php
-    include "teste.php";
 
-    if(isset($_POST["criar_lista"])) {
-        echo "<pre>";
-        var_dump($_POST);
-        echo "</pre>";
-        
-        $input_nome_mercado = $_POST["nome_mercado"];
-        $input_nome_nova_lista = $_POST["nome_nova_lista"];
-        $cadastrar_lista_compras = new Lista_compras(0, 0, "$input_nome_mercado", "$input_nome_nova_lista", 0);
-        $cadastrar_lista_compras->insert();
-        $create_lista_itens = new Itens_lista(0,0,0,0,"$input_nome_nova_lista");
-        $create_lista_itens->create();
+    session_start();
 
+    $input_nome_lista = "__sem_lista__";
+
+    include ".\..\Model\\teste.php";
+
+    if((isset($_SESSION['login']) == true) and (isset($_SESSION['senha']) == true)){
+        $logado = $_SESSION['login'];
+
+    }else{
+        unset($_SESSION['login']);
+        unset($_SESSION['senha']);
+        header('Location: login.php');
     }
 
-    if(isset($_POST["selecionar_lista"])) {
-        echo "<pre>";
-        var_dump($_POST);
-        echo "</pre>";
-
-        $input_nome_lista = $_POST['nome_lista'];
+    if(isset($_SESSION['nome_lista']) and ($_SESSION['nome_lista'] != "")){
+        $input_nome_lista = $_SESSION['nome_lista'];
     }
 
-    if(isset($_POST["adicionar_item"])) {
-        echo "<pre>";
-        var_dump($_POST);
-        echo "</pre>";
-
-        $input_id_item = $_POST['input_id_item'];
-        $input_item = $_POST['input_item'];
-        $input_qnt = $_POST['input_qnt'];
-        $input_valor = $_POST['input_valor'];
-        $input_nome_lista = $_POST['input_nome_lista'];
-
-        $adicionar_item_lista = new Itens_lista(0, "$input_item", "$input_qnt", "$input_valor", "$input_nome_lista");
-        $adicionar_item_lista->insert();
-        
-    }
 ?>
 
 <!DOCTYPE html>
@@ -56,23 +37,23 @@
         <a href="home.php">Início</a>
         <a href="cadastrar_mercado.php">Cadastrar Mercado</a>
         <a href="meus_mercados.php">Meus Mercados</a>
-        <a href="criar_lista.php">Criar Lista</a>
-        <a href="#">Minhas Listas</a>
-        <a href="#">Minhas Compras</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+        <a href="#"><button>Sair</button></a>
     </div>
-
+    
     <!--Elemento para abrir a barra lateral-->
     <!--<span id="openBtn" onclick="openNav()">=</span>-->
 
     <!--Para que o menu empurre a página para o lado, o seu conteúdo
     deve ficar dentro da div "main"-->
     <div id="main">
-        <h2>Criar lista</h2>
+        <h2>Minhas listas</h2>
         <br><hr><br>
         <div>
             <h3>Crie a sua lista</h3>
             <br><br><br>
-            <form action="criar_lista.php" method="POST" disabled="true">
+            <form action=".\..\Control\minha_lista_c.php" method="POST">
                <label for="">Selecione o mercado onde fará suas compras: </label>
                 <?php
                         //include_once "teste.php";
@@ -87,7 +68,7 @@
                         }
                         print_r("</select>");
                 ?><br>
-                <label for="nome_nova_lista">Nome da lista: </label><input type="text" name="nome_nova_lista" placeholder="Nome da lista">
+                <label for="nome_nova_lista">Nome da lista: </label><input type="text" name="nome_nova_lista" required placeholder="Nome da lista">
                 <br>
                 <button type="submit" name="criar_lista" value="cadastrar">Cadastrar</button>
             </form>
@@ -96,7 +77,7 @@
         <div>
             <h3>Minhas listas</h3>
             <br>
-            <form action="minha_lista.php" method="POST">
+            <form action=".\..\Control\minha_lista_c.php" method="POST">
                 <label for="">Selecione sua lista de compras: </label>
                     <?php
                             //include_once "teste.php";
@@ -111,27 +92,40 @@
                             }
                             print_r("</select>");
                     ?>
-                    <button type="submit" name="selecionar_lista" value="submit">Selecionar</button>
+                    <button type="submit" name="selecionar_lista" value="selecionar">Selecionar</button>
+                    <button type="submit" name="remover_lista" value="remover">Remover</button>
+
             </form>
             <br><hr><br>
         </div>
         <div>
             <h3>Inserir item</h3>
 
-            <form action="criar_lista.php" method="POST">
-                <label for="item">Item: </label><input type="text" name="item" placeholder="Nome do item">
-                <label for="qnt">Quanditade: </label><input type="text" name="qnt" placeholder="quantidade">
-                <label for="valor">Valor R$: </label><input type="text" name="valor" placeholder="10,00">
+            <form action=".\..\Control\minha_lista_c.php" method="POST">
+                <label for="item">Item: </label><input type="text" name="input_item" placeholder="Nome do item"></input>
+                <label for="qnt">Quanditade: </label><input type="text" name="input_qnt" placeholder="quantidade"></input>
+                <label for="valor">Valor R$: </label><input type="text" name="input_valor" placeholder="10,00"></input>
+                <input type="text" name="nome_lista" readonly hidden="true" value="<?php echo"$input_nome_lista"?>"></input>
                 <button type="submit" name="adicionar_item" value="adicionar">Adicionar</button>
+                
         
             </form>
             <br><hr><br>
         </div>
-        <div>
-            <label class="lista_de_itens" for="">teste</label>
+        <div id="itens_lista_bg">
+            <?php // Exibindo os itens da lista de itens
+                if($input_nome_lista != '__sem_lista__'){
+                    $listar_itens_lista = new Itens_lista(0,0,0,0, "$input_nome_lista");
+                    print_r("<label><h2 style='background-color:rgb(30, 30, 30, 0.6);'>{$input_nome_lista}</h2></label>");
+                    $listar_itens_lista->consulta_itens_lista();
+                }else{ 
+                    print_r("Selecione a sua lista.");
+                }
+    
+            ?>
         </div>
     
     </div>   
-    <script src="script.js"></script>
+    <script src=".\..\Control\script.js"></script>
 </body>
 </html>
