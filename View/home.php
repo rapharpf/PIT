@@ -29,7 +29,7 @@
         <a href="minha_lista.php">Minhas Listas</a>
         <a href="#">Sobre</a>
         <a href="#">Contato</a>
-        <a href="#"><button>Sair</button></a>
+        <a href=".\..\Control\sair_c.php"><button id="btn_sair">Sair</button></a>
     </div>
 
     <!--Elemento para abrir a barra lateral-->

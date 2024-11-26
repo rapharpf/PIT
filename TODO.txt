@@ -4,7 +4,7 @@
 - Organizar e configurar o banco de dados (estrutura do banco de dados);
 - Fazer o menu dropdown com os cálculos em relação às outras listas (funcionalidade);
 - Implementar tabela tipo zebra e um on hover para distacar o item que o mouse estiver em cima (estilo);
-- Implementar estilo em páginas que falta ex: Cadastro de usuário, Login e cadastro mercado;
+- Implementar estilo em páginas que falta ex: Cadastro de usuário, Login e cadastro mercado; **
 - Fazer as páginas de "contato" e "sobre";
 - Implementar o botão de "sair", para o usuário deslogar e fechar a sessão;
 

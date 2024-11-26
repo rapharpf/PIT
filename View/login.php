@@ -32,11 +32,10 @@
         <h2>TESTE</h2>
         <br><hr><br>
         <div id="login_box">
-            <form action=".\..\Control\login_c.php", method="POST">
-                <h2>Login</h2>
-                <label>Login</label>
-                <input type='text' name='input_usuario_login' id='input_usuario_login'  required value='' placeholder='Usuário'></input><br>
-                <label>Senha</label>
+            <form id="form_login" action=".\..\Control\login_c.php", method="POST">
+                <label>Login</label><br>
+                <input type='text' name='input_usuario_login' id='input_usuario_login'  required value='' placeholder='Usuário'></input><br><br>
+                <label>Senha</label><br>
                 <input type='password' name='input_passwd_login' id='input_passwd_login' required value='' placeholder='Senha'></input><br>
                 <input type="submit" name="submit" value="Entrar"></input><br>
                 <a href='#'>Esqueci minha senha</a><br>
