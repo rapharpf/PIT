@@ -1,5 +1,4 @@
 <?php
-
     session_start();
     if((isset($_SESSION['login']) == true) and (isset($_SESSION['senha']) == true)){
         $logado = $_SESSION['login'];
@@ -11,7 +10,6 @@
     }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -27,7 +25,7 @@
         <a href="javascript:void(0)" id="openBtn" onclick="openNav()">&equiv;</a>
         <a href="javascript:void(0)" id="closeBtn" onclick="closeNav()">&times;</a>
         <a href="home.php">Início</a>
-        <a href="cadastrar_Mercado.php">Cadastrar Mercado</a>
+        <a href="cadastrar_mercado.php">Cadastrar Mercado</a>
         <a href="meus_mercados.php">Meus Mercados</a>
         <a href="minha_lista.php">Minhas Listas</a>
         <a href="sobre.php">Sobre</a>
@@ -41,18 +39,15 @@
     <!--Para que o menu empurre a página para o lado, o seu conteúdo
     deve ficar dentro da div "main"-->
     <div id="main">
-        <h2>Cadastrar Mercado</h2>
-        <br><hr><br>
-        <div id="div_cad_mercado">
-            <form id="form_cadastrar_mercado" action=".\..\Control\cadastrar_mercado_c.php", method="POST">
-                <label id="lbl_cadastro_nome_mercado" for="cadastro_nome_mercado">Nome do mercado:</label><br>
-                <input type="text" id="cadastro_nome_mercado" name="cadastro_nome_mercado" placeholder="Nome do mercado" required></input><br>
-                <label id="lbl_endereco_mercado" for="endereco_mercado">Endereço/Descrição:</label><br>
-                <input type="text" id="endereco_mercado" name="endereco_mercado" placeholder="Rua fulano de tal, N. 3/4"><br>
-                <input type="button" class="btn" id="btn_cadastrar_mercado" name="btn_cadastrar_mercado" value="Cadastrar"></input>
-            </form>
+        <h2>Contato</h2>
+        <br><hr><br><br><br>
+        <h2>MarketDB</h2>
+        <div id="sobre_body">
+            <p> Universidade Cruzeiro do Sul</p>
+            <p> Projeto Integrador Transdisciplinar em Ciência da Computação II</p>
+            
         </div>
     </div>
-        <script src=".\..\Control\cadastrar_mercado.js"></script>
+    <script src=".\..\Control\script.js"></script>
 </body>
 </html>

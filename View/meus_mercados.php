@@ -33,8 +33,8 @@
         <a href="cadastrar_mercado.php">Cadastrar Mercado</a>
         <a href="meus_mercados.php">Meus Mercados</a>
         <a href="minha_lista.php">Minhas Listas</a>
-        <a href="#">Sobre</a>
-        <a href="#">Contato</a>
+        <a href="sobre.php">Sobre</a>
+        <a href="contato.php">Contato</a>
         <a href=".\..\Control\sair_c.php"><button id="btn_sair">Sair</button></a>
     </div>
 

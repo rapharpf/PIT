@@ -76,6 +76,9 @@ body {
 /* Até aqui estiliza a barra de navegação lateral. */
 
 
+
+
+
 /* Estilizando a página de corpo.*/
 #main {
    text-align: center;
@@ -84,6 +87,7 @@ body {
    margin-left: 30px;
    color: white;
 }
+
 
 
 
@@ -107,32 +111,80 @@ body {
    
 }
 
-#login_box input{
+#login_box #input_usuario_login, #input_passwd_login{
    text-align: center;
-   background-color: #1d1d1d;
-   font-size: 15px;
-   color: whitesmoke;
+   background-color: #1d1d1d00;
+   font-size: 18px;
+   color: rgba(245, 245, 245, 0.749);
    border-style: none;
    border-bottom: solid thin white;
 
 }
 
 
-#btn_cadastrar_usuario:hover{
-   cursor: pointer;
-   text-decoration:underline;
-}
-
 #login_box a{
+   color: rgba(3, 3, 195, 0.842);
    font-size: 20px;
    text-decoration: none;
 }
 
 #login_box a:hover{
-   font-size: 20px;
-   text-decoration: none;
    text-decoration-line: underline;
 }
+
+#btn_login_submit{
+   font-size: 15px;
+   width:20%;
+   margin-top:2%;
+}
+
+/* fim da página de login*/
+
+
+
+
+
+/* início página cadastrar usuário*/
+
+#login_box #input_cadastro_usuario, #input_cadastro_senha{
+   text-align: center;
+   background-color: #1d1d1d00;
+   font-size: 18px;
+   color: rgba(245, 245, 245, 0.749);
+   border-style: none;
+   border-bottom: solid thin white;
+
+}
+
+#btn_cadastrar_usuario{
+   cursor: pointer;
+   font-size: 15px;
+   width:20%;
+   margin-top:4%;
+}
+
+
+/* Fim de cadastro de usuário */
+
+
+
+
+
+/* Página Home */
+
+
+#home_body{
+   margin:2%;
+   text-align: left;
+   font-size: 25px;
+}
+
+#home_body p{
+   margin-bottom: 3%;
+}
+
+
+
 
 
 
@@ -154,7 +206,7 @@ body {
 }
 
 
-#cadastro_nome_mercado{
+#cadastro_nome_mercado, #endereco_mercado{
    margin-top: 2%;
    margin-bottom: 5%;
    text-align: center;
@@ -167,19 +219,15 @@ body {
    border-width: 0.5px;
 }
 
-#endereco_mercado{
-   text-align: center;
-   outline: none;
-   margin-top: 2%;
-   margin-bottom: 5%;
-   background-color: transparent;
-   color: white;
-   font-size: 20px;
-   border-style: none;
-   border-bottom-style: solid;
-   border-width: 0.5px;
-
+#btn_cadastrar_mercado{
+   cursor: pointer;
+   font-size: 15px;
+   width:30%;
+   margin-top:4%;
 }
+
+
+/* Fim página cadastrar Mercado *
 
 
 
@@ -217,6 +265,10 @@ body {
 }
 
 /*  nome mercado */
+
+.btn_edit_nome:hover, .btn_edit_desc:hover, .btn_del_mercado:hover{
+   text-decoration: underline;
+}
 .id_db {
    display: none;
 }
@@ -275,7 +327,26 @@ body {
 }
 
 
+/* Fim página Meus Mercados*/
+
+
+
+
+
+
 /* Página minha_lista */
+
+
+/* Parte cria a sua lista */
+
+#form_criar_lista{
+   font-size: 20px;
+   margin: 1%;
+}
+
+
+
+/* Tabela de lista de itens */
 
 #itens_lista_bg {
    display: block;
@@ -330,4 +401,18 @@ body {
    padding-right: 5%;
 }
 
+/* Fim tabela de lista de itens */
 
+
+
+
+
+/* Página sobre */
+
+#sobre_body p{
+   font-size: 20px;
+   margin-top: 2%;
+   margin-left: 4%;
+   margin-right: 4%;
+
+}

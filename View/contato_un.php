@@ -1,10 +1,3 @@
-<?php
-
-    session_start();
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -18,6 +11,7 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" id="openBtn" onclick="openNav()">&equiv;</a>
         <a href="javascript:void(0)" id="closeBtn" onclick="closeNav()">&times;</a>
+        <a href="login.php">Login</a>
         <a href="cadastro_usuario.php">Cadastre-se</a>
         <a href="sobre_un.php">Sobre</a>
         <a href="contato_un.php">Contato</a>
@@ -29,18 +23,13 @@
     <!--Para que o menu empurre a página para o lado, o seu conteúdo
     deve ficar dentro da div "main"-->
     <div id="main">
+        <h2>Contato</h2>
+        <br><hr><br><br><br>
         <h2>MarketDB</h2>
-        <br><hr><br>
-        <div id="login_box">
-            <form id="form_login" action=".\..\Control\login_c.php", method="POST">
-                <label>Login</label><br>
-                <input type='text' name='input_usuario_login' id='input_usuario_login'  required value='' placeholder='Usuário'></input><br><br>
-                <label>Senha</label><br>
-                <input type='password' name='input_passwd_login' id='input_passwd_login' required value='' placeholder='Senha'></input><br>
-                <input id="btn_login_submit" type="submit" name="submit" value="Entrar"></input><br>
-                <a href='#'>Esqueci minha senha</a><br>
-                <a href='cadastro_usuario.php'>Criar conta</a>
-            </form>
+        <div id="sobre_body">
+            <p> Universidade Cruzeiro do Sul</p>
+            <p> Projeto Integrador Transdisciplinar em Ciência da Computação II</p>
+            
         </div>
     </div>
     <script src=".\..\Control\script.js"></script>

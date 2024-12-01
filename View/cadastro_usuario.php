@@ -17,8 +17,8 @@
         <a href="javascript:void(0)" id="openBtn" onclick="openNav()">&equiv;</a>
         <a href="javascript:void(0)" id="closeBtn" onclick="closeNav()">&times;</a>
         <a href="login.php">Login</a>
-        <a href="#">Sobre</a>
-        <a href="#">Contato</a>
+        <a href="sobre.php">Sobre</a>
+        <a href="contato.php">Contato</a>
     </div>
 
     <!--Elemento para abrir a barra lateral-->

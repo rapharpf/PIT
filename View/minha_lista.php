@@ -37,8 +37,9 @@
         <a href="home.php">Início</a>
         <a href="cadastrar_mercado.php">Cadastrar Mercado</a>
         <a href="meus_mercados.php">Meus Mercados</a>
-        <a href="#">Sobre</a>
-        <a href="#">Contato</a>
+        <a href="minha_lista.php">Minhas Listas</a>
+        <a href="sobre.php">Sobre</a>
+        <a href="contato.php">Contato</a>
         <a href=".\..\Control\sair_c.php"><button id="btn_sair">Sair</button></a>
     </div>
     
@@ -52,26 +53,28 @@
         <br><hr><br>
         <div>
             <h3>Crie a sua lista</h3>
-            <br><br><br>
-            <form action=".\..\Control\minha_lista_c.php" method="POST">
-               <label for="">Selecione o mercado onde fará suas compras: </label>
-                <?php
-                        //include_once "teste.php";
-                        $minha_lista_mercados = new Lista_compras();
-                        $select_mercados = $minha_lista_mercados->consulta_mercados();
-                        $entradas_select = count($select_mercados);
-                        $count = 0;
-                        print_r("<select name='nome_mercado' id=''>");
-                        while($entradas_select > $count){
-                            print_r("<option value='{$select_mercados[$count]}'>{$select_mercados[$count]}</option>");
-                            ++$count;
-                        }
-                        print_r("</select>");
-                ?><br>
-                <label for="nome_nova_lista">Nome da lista: </label><input type="text" name="nome_nova_lista" required placeholder="Nome da lista">
-                <br>
-                <button type="submit" name="criar_lista" value="cadastrar">Cadastrar</button>
-            </form>
+            
+            <div id="form_criar_lista">
+                <form action=".\..\Control\minha_lista_c.php" method="POST">
+                <label for="">Selecione o mercado onde fará suas compras: </label><br>
+                    <?php
+                            //include_once "teste.php";
+                            $minha_lista_mercados = new Lista_compras();
+                            $select_mercados = $minha_lista_mercados->consulta_mercados();
+                            $entradas_select = count($select_mercados);
+                            $count = 0;
+                            print_r("<select name='nome_mercado' id=''>");
+                            while($entradas_select > $count){
+                                print_r("<option value='{$select_mercados[$count]}'>{$select_mercados[$count]}</option>");
+                                ++$count;
+                            }
+                            print_r("</select>");
+                    ?><br>
+                    <label for="nome_nova_lista">Nome da lista: </label><br><input type="text" name="nome_nova_lista" required placeholder="Nome da lista">
+                    <br>
+                    <button type="submit" name="criar_lista" value="cadastrar">Cadastrar</button>
+                </form>
+            </div>
         </div>
         <br><hr><br>
         <div>
@@ -103,7 +106,7 @@
 
             <form action=".\..\Control\minha_lista_c.php" method="POST">
                 <label for="item">Item: </label><input type="text" name="input_item" placeholder="Nome do item"></input>
-                <label for="qnt">Quanditade: </label><input type="text" name="input_qnt" placeholder="quantidade"></input>
+                <label for="qnt">Quantidade: </label><input type="text" name="input_qnt" placeholder="quantidade"></input>
                 <label for="valor">Valor R$: </label><input type="text" name="input_valor" placeholder="10,00"></input>
                 <input type="text" name="nome_lista" readonly hidden="true" value="<?php echo"$input_nome_lista"?>"></input>
                 <button type="submit" name="adicionar_item" value="adicionar">Adicionar</button>
